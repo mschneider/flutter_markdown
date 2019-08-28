@@ -137,6 +137,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         );
 
     _inlines.last.children.add(new RichText(
+      textAlign: styleSheet.textAlign,
       textScaleFactor: styleSheet.textScaleFactor,
       text: span,
     ));
@@ -347,6 +348,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         children.add(child.text);
         TextSpan mergedSpan = new TextSpan(children: children);
         mergedTexts.add(new RichText(
+          textAlign: styleSheet.textAlign,
           textScaleFactor: styleSheet.textScaleFactor,
           text: mergedSpan,
         ));

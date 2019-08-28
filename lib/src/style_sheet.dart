@@ -28,6 +28,7 @@ class MarkdownStyleSheet {
     this.codeblockPadding,
     this.codeblockDecoration,
     this.horizontalRuleDecoration,
+    this.textAlign = TextAlign.start,
     this.textScaleFactor = 1.0
   }) : _styles = <String, TextStyle>{
     'a': a,
@@ -154,6 +155,7 @@ class MarkdownStyleSheet {
     double codeblockPadding,
     Decoration codeblockDecoration,
     Decoration horizontalRuleDecoration,
+    TextAlign textAlign,
     double textScaleFactor,
   }) {
     return new MarkdownStyleSheet(
@@ -177,6 +179,7 @@ class MarkdownStyleSheet {
       codeblockPadding: codeblockPadding ?? this.codeblockPadding,
       codeblockDecoration: codeblockDecoration ?? this.codeblockDecoration,
       horizontalRuleDecoration: horizontalRuleDecoration ?? this.horizontalRuleDecoration,
+      textAlign : textAlign ?? this.textAlign,
       textScaleFactor : textScaleFactor ?? this.textScaleFactor,
     );
   }
@@ -241,6 +244,9 @@ class MarkdownStyleSheet {
   /// The decoration to use for `hr` elements.
   final Decoration horizontalRuleDecoration;
 
+
+  final TextAlign textAlign;
+
   // The text scale factor to use in textual elements
   final double textScaleFactor;
 
@@ -275,6 +281,7 @@ class MarkdownStyleSheet {
         && typedOther.codeblockPadding == codeblockPadding
         && typedOther.codeblockDecoration == codeblockDecoration
         && typedOther.horizontalRuleDecoration == horizontalRuleDecoration
+        && typedOther.textAlign == textAlign
         && typedOther.textScaleFactor == textScaleFactor;
   }
 
@@ -301,6 +308,7 @@ class MarkdownStyleSheet {
       codeblockPadding,
       codeblockDecoration,
       horizontalRuleDecoration,
+      textAlign,
       textScaleFactor,
     ]);
   }
