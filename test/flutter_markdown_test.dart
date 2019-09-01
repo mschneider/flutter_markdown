@@ -467,6 +467,19 @@ void main() {
     expect(style1.hashCode, equals(style2.hashCode));
   });
 
+  testWidgets('should use style textAlign in RichText', (WidgetTester tester) async {
+    await tester.pumpWidget(_boilerplate(
+      MarkdownBody(
+        styleSheet: MarkdownStyleSheet(textAlign: TextAlign.justify),
+        data: 'Hello World',
+      ),
+    ));
+
+    final RichText richText =
+    tester.allWidgets.firstWhere((Widget widget) => widget is RichText);
+    expect(richText.textAlign, TextAlign.justify);
+  });
+
   testWidgets('should use style textScaleFactor in RichText', (WidgetTester tester) async {
     await tester.pumpWidget(_boilerplate(
       MarkdownBody(
